@@ -17,7 +17,21 @@ public class ICICIBank extends RBIClass implements ROI {
 		return 0.0;
 		// Challenge
 	}
+	/*@ Overriding Concept
+	public void setWithdrawlLimit(double amtlimit) {
+		 if(amtlimit > 150000) {
+			 System.out.println("Your Bank not authorized with more than Rs 50000 withdrawl limit");
+		 }else {
+			this.amtlimit = amtlimit;
+		 }
+		
+	}*/
 	public void withDrawlLimit() {
-		System.out.println("Rs 50000/- per day to all Customers...");
+		if(amtlimit < 1.0) {
+			System.out.println("Withdrawl limit not set for ICIC bank");
+		}else {
+		System.out.println("Rs " + amtlimit +"/-per day to all ICICI Customers...");
+	
+		}
 	}
 }

@@ -21,4 +21,8 @@ public class SBIBank extends RBIClass implements ROI {
 	public void SBIBonus() {
 		System.out.println("Rs 200000/- Bonus to all Employees...");
 	}
+	
+	public void withDrawlLimit() {
+		System.out.println("Rs " + amtlimit +"/-per day to all SBI Customers...");
+	}
 }

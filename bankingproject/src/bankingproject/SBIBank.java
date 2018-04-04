@@ -1,6 +1,8 @@
 package bankingproject;
+import java.util.ArrayList;;
 
 public class SBIBank extends RBIClass implements ROI {
+	ArrayList customerList = new ArrayList();
 
 	public SBIBank(String bankName, String location) {
 		super(bankName, location);
@@ -25,4 +27,15 @@ public class SBIBank extends RBIClass implements ROI {
 	public void withDrawlLimit() {
 		System.out.println("Rs " + amtlimit +"/-per day to all SBI Customers...");
 	}
+	
+	public void addCustomer(Customer cust) {
+		customerList.add(cust);
+	}
+	public void withDrawMoney(Customer cust, double amt) throws UserLimitException {
+		if(amt > cust.balance) {
+			throw(new UserLimitException(300));
+		}
+		
+	}
+	
 }

@@ -28,17 +28,20 @@ public class RBIClass {
 		System.out.println("**********************XXX*************************");
 	}
 	
-	public final void setWithdrawlLimit(double amtlimit) throws Exception {
-		
+	public final void setWithdrawlLimit(double amtlimit)throws UserLimitException  {
+		// Code Dated 4th April 2018
+		if(amtlimit > 50000) {
+			throw(new UserLimitException(100));
+		}
 		/* if(amtlimit > 50000) {
 			 System.out.println("Your Bank not authorized with more than Rs 50000 withdrawl limit");
 		 }else {
 			this.amtlimit = amtlimit;
 		 }
 		 */
-		if(amtlimit > 50000) {
+		/*if(amtlimit > 50000) {
 			throw new Exception("Trying to SET Wrong Limit");
-		}
+		}*/
 		/*try {
 			if(amtlimit > 50000) {
 				throw new Exception("Trying to SET Wrong Limit");

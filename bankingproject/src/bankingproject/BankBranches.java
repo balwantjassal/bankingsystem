@@ -17,13 +17,33 @@ public class BankBranches {
 		rbi.showBankDetails();
 		*/
 		try {
+		sbiBank1.setWithdrawlLimit(100000);
+		}catch(UserLimitException e) {
+			System.out.println(e.getMessage());
+		}
+		/*try {
 		sbiBank1.setWithdrawlLimit(50000.0);
 		icicBank1.setWithdrawlLimit(100000.0);
 		}catch(Exception ex) {
 			System.out.println(ex.getMessage());
-		}
+		}*/
 		sbiBank1.withDrawlLimit();
 		icicBank1.withDrawlLimit();
+		Customer cust1 = new Customer("Ayush", 100000);
+		Customer cust2 = new Customer("Hasan", 200000);
+		Customer cust3 = new Customer("Mayank", 300000);
+		sbiBank1.addCustomer(cust1);
+		sbiBank1.addCustomer(cust2);
+		sbiBank1.addCustomer(cust3);
+		
+		// Lets withdraw money
+		try {
+			sbiBank1.withDrawMoney(cust1, 150000);
+		}catch(UserLimitException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
 	}
 
 }
